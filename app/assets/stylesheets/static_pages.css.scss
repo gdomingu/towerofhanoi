@@ -5,6 +5,12 @@ html{
    -o-background-size: cover;
    background-size: cover;
 }
+
+h1{
+  text-align: center;
+  color:#FCF6CF;
+  text-shadow: -2px 0 black, 0 2px black, 2px 0 black, 0 -2px black;
+}
 #container{
   background-color: white;
   height:400px;
@@ -18,11 +24,10 @@ html{
 }
 
 #pegcontainer{
-  position:absolute;
   height:50px;
   width:300px;
   padding-left:70px;
-  bottom:0;
+  padding-top: 200px;
 
 }
 
@@ -38,13 +43,9 @@ html{
   vertical-align: bottom;
 }
 
-.peg:first-child{
-  position:relative;
-  bottom:0;
-}
+
 
 .disc{
-  display: inline-block;
   list-style: none;
   border: 1px solid #ccc;
   text-align: center;
