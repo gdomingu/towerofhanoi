@@ -8,21 +8,24 @@ $(document).ready(function(){
   function setup(){
     if (counter < discnum){
       counter++
-      peg1.append('<li class="disc" id='+counter+'>'+counter+'</li>');
+      peg1.append('<div class="disc" id='+counter+'>'+counter+'</div>');
       setup()
     }
   }
   setup()
 
   $(function movedisc() {
-      $( ".peg li:first-child" ).draggable();
+      $( ".peg div:first-child" ).draggable();
       $( ".peg" ).droppable({
         drop: function( event, ui ) {
           var currentdisc = $('.ui-draggable-dragging')
-          if ($(this).find("li:first-child").length === 0 || $(this).find("li:first-child").attr('id')  > currentdisc.attr('id')){
+          if ($(this).find("div:first-child").length === 0 || $(this).find("div:first-child").attr('id')  > currentdisc.attr('id')){
             $(this).prepend(currentdisc.removeAttr('style'))
-            $(this).children().draggable('destroy');
-            $( ".peg li:first-child" ).draggable();
+            $(this).children().draggable().draggable('destroy');
+            $( ".peg div:first-child" ).draggable();
+            if ($('#peg3').find('div').length == discnum){
+              alert('You win!');
+            }
           } else {
             alert("you can't move there!")
             currentdisc.removeAttr('style')
